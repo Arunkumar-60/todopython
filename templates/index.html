@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello World</h1>
+    <p id="message"></p>
+    <button onclick="loadAPI()">LOAD API</button>
+
+</body>
+
+<script>
+    async function loadAPI() {
+        let response = await fetch('/data');
+        if (!response.ok) {
+            console.log('request failed /data');
+            return;
+        }
+        let res = await response.json();
+        console.log(res);
+        document.getElementById('message').innerHTML = res.message
+
+    }
+</script>
+</html>
