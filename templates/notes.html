@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendering Template</title>
+</head>
+
+<body>
+    <h1>this is a template</h1>
+    {% if notes %}
+    <ul>{% for item in notes %}</ul>
+    <li>{{item.title}}</li>
+    <li>{{item.des}}</li>
+    <button class="edit" onclick="edit({item.id})"> edit</button>
+    <button class="delete" onclick="removeNote({item.id})">delete</button>
+    {% endfor %}
+
+    {%else%}
+    <p>no notes yet!</p>
+    {%endif%}
+
+
+    <script>
+        function edit() {
+            console.log(edit button is clicked')
+
+        }
+        function removeNote() {
+            console.log('delete button is clicked')
+        }
+    </script>
+</body>
+
+</html>
